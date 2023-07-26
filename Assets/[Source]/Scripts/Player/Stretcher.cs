@@ -1,44 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Stretcher : MonoBehaviour
 {
-    [SerializeField]
-    private Material lineMat;
+    [SerializeField] private Material lineMat;
 
-    private LineRenderer lr;
+    private LineRenderer linerenderer;
 
-    public Transform p0;
-    public Transform p1;
+    public Transform letPlayer;
+    public Transform rightPlayer;
 
     public int stretchMax = 2;
-    public int stretched;
+    public int stretchLevel;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        lr = transform.parent.GetComponent<LineRenderer>();
-    }
+    void Start() { linerenderer = transform.parent.GetComponent<LineRenderer>();}
 
-    // Update is called once per frame
     void Update()
     {   
-        lr.SetPosition(0, p0.position);
-        lr.SetPosition(1, p1.position);
+        linerenderer.SetPosition(0, letPlayer.position);
+        linerenderer.SetPosition(1, rightPlayer.position);
 
-        switch (stretched)
+        switch (stretchLevel)
         {
-            case 1:
-                {
-                    lineMat.color = Color.grey;
-                    break;
-                }
-            case 2:
-                {
-                    lineMat.color = Color.black;
-                    break;
-                }
+            case 1: { lineMat.color = Color.grey; break; }
+            case 2: { lineMat.color = Color.black; break; }
         }
     }
 }

@@ -30,23 +30,23 @@ public class TMovement : MonoBehaviour
     {
         if (WASD)
         {
-            if (Input.GetKeyDown(KeyCode.A) && st.stretched < st.stretchMax)
+            if (Input.GetKeyDown(KeyCode.A) && st.stretchLevel < st.stretchMax)
             {
-                st.stretched++;
+                st.stretchLevel++;
                 transform.position += new Vector3(-distance, 0, 0);
                 sm.PlayWalk();
             }
-            else if (Input.GetKeyDown(KeyCode.D) && st.stretched > 0)
+            else if (Input.GetKeyDown(KeyCode.D) && st.stretchLevel > 0)
             {
-                st.stretched--;
+                st.stretchLevel--;
                 transform.position += new Vector3(distance, 0, 0);
                 sm.PlayWalk();
             }
-            else if (Input.GetKeyDown(KeyCode.A) && st.stretched >= st.stretchMax)
+            else if (Input.GetKeyDown(KeyCode.A) && st.stretchLevel >= st.stretchMax)
             {
                 CantWalk();
             }
-            else if (Input.GetKeyDown(KeyCode.D) && st.stretched <= 0)
+            else if (Input.GetKeyDown(KeyCode.D) && st.stretchLevel <= 0)
             {
                 CantWalk();
             }
@@ -59,23 +59,23 @@ public class TMovement : MonoBehaviour
         }
         else if(!WASD && tm.ts != TutorialState.AD)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && st.stretched > 0)
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && st.stretchLevel > 0)
             {
-                st.stretched--;
+                st.stretchLevel--;
                 transform.position += new Vector3(-distance, 0, 0);
                 sm.PlayWalk();
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow) && st.stretched < st.stretchMax)
+            else if (Input.GetKeyDown(KeyCode.RightArrow) && st.stretchLevel < st.stretchMax)
             {
-                st.stretched++;
+                st.stretchLevel++;
                 transform.position += new Vector3(distance, 0, 0);
                 sm.PlayWalk();
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow) && st.stretched >= st.stretchMax)
+            else if (Input.GetKeyDown(KeyCode.RightArrow) && st.stretchLevel >= st.stretchMax)
             {
                 CantWalk();
             }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow) && st.stretched <= 0)
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) && st.stretchLevel <= 0)
             {
                 CantWalk();
             }

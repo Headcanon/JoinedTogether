@@ -30,9 +30,9 @@ public class WASDInput : MonoBehaviour, IInput
 
         if(Input.GetKeyDown(KeyCode.A))
         {
-            if (st.stretched < st.stretchMax)
+            if (st.stretchLevel < st.stretchMax)
             {
-                st.stretched++;
+                st.stretchLevel++;
                 Move(-moveDistance);
             }
             else
@@ -42,9 +42,9 @@ public class WASDInput : MonoBehaviour, IInput
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (st.stretched > 0)
+            if (st.stretchLevel > 0)
             {
-                st.stretched--;
+                st.stretchLevel--;
                 Move(moveDistance);
             }
             else

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ArrowInput : MonoBehaviour, IInput
@@ -35,9 +33,9 @@ public class ArrowInput : MonoBehaviour, IInput
 
         if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (st.stretched > 0)
+            if (st.stretchLevel > 0)
             {
-                st.stretched--;
+                st.stretchLevel--;
                 Move(-moveDistance);
             }
             else
@@ -47,9 +45,9 @@ public class ArrowInput : MonoBehaviour, IInput
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if (st.stretched < st.stretchMax)
+            if (st.stretchLevel < st.stretchMax)
             {
-                st.stretched++;
+                st.stretchLevel++;
                 Move(moveDistance);
             }
             else
